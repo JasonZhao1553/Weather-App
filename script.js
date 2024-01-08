@@ -13,6 +13,11 @@ searchButton.addEventListener('click', () => {
     const location = locationInput.value;
     if (location) {
         fetchWeather(location);
+        locationElement.textContent = '';
+        temperatureElement.textContent = ''
+        descriptionElement.textContent = '';
+        lonElement.textContent = '';
+        latElement.textContent = '';
     }
 });
 
@@ -29,5 +34,6 @@ function fetchWeather(location) {
         })
         .catch(error => {
             console.error('Error fetching weather data:', error);
+            locationElement.textContent = 'Error fetching weather data'
         });
 }
